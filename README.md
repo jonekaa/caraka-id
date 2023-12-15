@@ -1,2 +1,11 @@
-# caraka-id
-Caraka is an android-based educational application that teaches users about Aksara from Lampung, Bali, and Sunda. 
+<h1 align='center'>CARAKA</h1>
+
+## Machine Learning
+
+[TensorFlow][]
+[Keras][]
+[OpenCV][]
+
+## Cloud Computing
+
+## Mobile Development
