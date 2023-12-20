@@ -74,9 +74,29 @@ def predict_words(labels):
     words = []
 
     for id, label in enumerate(labels):
+        if label == 'sa' and labels[id + 1] == 'sa':
+            label = ''
+
+        if label == 'ka' and labels[id + 1] == 'ka':
+            label = ''
+
         if label == 'vowels_o':
-            word = words.pop()
-            label = word.replace(list(word)[-1], 'o')
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'o')
+            words.pop()
+        elif label == 'vowels_u':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'u')
+            words.pop()
+        elif label == 'vowels_ya':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'ya')
+            words.pop()
+        elif label == 'vowels_x':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'ya')
+            words.pop()
+
+        elif label == 'vowels_h':
+            label = 'h'
+        elif label == 'vowel_r':
+            label = 'r'
 
         words.append(label)
 
@@ -94,8 +114,8 @@ class_labels = ['a', 'ba', 'ca', 'da', 'e',
                 'vowels_u', 'vowels_x', 'vowels_ya',
                 'wa', 'xa', 'ya', 'za']
 
-image_path = '../test_images/Aksara_Sunda/baca buku.png'
-model_path = '../models/model_sunda_conv_100_100.h5'
+image_path = '../test_images/Aksara_Sunda/bala.jpg'
+model_path = '../models/model_sunda_efficientnet_v2_993_993.h5'
 
 model = load_your_model(model_path)
 image = cv2.imread(image_path)

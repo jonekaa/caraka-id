@@ -110,8 +110,8 @@ def predict_words(labels):
 
 
 if __name__ == '__main__':
-    MODEL_PATH = '../models/model_bali_conv_2_99_99.h5'
-    IMAGE_PATH = '../test_images/Aksara_Bali/bali-pergi_bersama_kadek.png'
+    MODEL_PATH = '../models/model_bali_efficientnetv2.h5'
+    IMAGE_PATH = '../test_images/Aksara_Bali/pergi_bali.png'
 
     CLASS_LABELS = ['Ba', 'Ca', 'Da', 'Ga', 'Ha',
                     'Ja', 'Ka', 'La', 'Ma', 'Na',
