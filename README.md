@@ -18,29 +18,31 @@
 <p align="justify">
 In the machine learning workflow, I began by curating and creating my own datasets,
 ensuring that they were representative of the problem at hand. Utilizing TensorFlow,
-I employed the `image_dataset_from_directory` function, configuring the image to a size of
+I employed the <code>image_dataset_from_directory</code> function, configuring the image to a size of
 150 x 150 x 3. For training and validation, the data was divided 80:20 split.
-Employing the `tf.data.AUTOTUNE` feature, I fine-tuned the data processing pipeline
-for optimal efficiency. Leveraging transfer learning, I implemented the EfficientNetV2B0
+Employing the  <code>tf.data.AUTOTUNE</code>  feature, I fine-tuned the data processing pipeline
+for optimal efficiency. Leveraging transfer learning, I implemented the <code>EfficientNetV2B0</code>
 architecture, initializing the model with weights pre-trained on the 'imagenet' dataset.
 Subsequently, I trained the model on the prepared data, achieving a high level of accuracy.
-To preserver the trained model, I saved it in the .h5 model format and securely stored
+To preserver the trained model, I saved it in the <code>.h5</code> model format and securely stored
 it in the Google Cloud Platform, ensuring accessibility and scalability for future 
 applications and analysis. This comprehensive workflow reflects a systematic
 approach to developing and deploying machine learning models.
 
 <p align="justify">
-
 To improve feature extraction, the picture is first read using the 
 opencv-python package. It is then converted to a grayscale representation
-and blurred. The image is then examined to determine an appropriate threshold
-threshold that helps separate items from the background. The borders of the
+and blurred. The image is then examined to determine an appropriate threshold 
+that helps separate items from the background. The borders of the
 segmented items are then shown by contours. Drawing bounding boxes around the
 recognized items in the picture is the last step. Specifically, these bounding
 boxes are sorted according to their coordinates using the code snippet
+</p>
+
 ```python
 boxes.sort(key=lambda x: (x[0], x[1]))
 ```
+<p align="justify">
 The sort function's lambda function arranges the segmented objects in a systematic
 manner for additional processing or analysis by primary sorting the boxes
 according to their horizontal (x-axis) and vertical (y-axis) locations.
@@ -54,15 +56,18 @@ sorting process
     <img src="images/model_sunda_summary.png" alt="sunda_summary" width="33%" />
     <img src="images/model_lampung_summary.png" alt="lampung-summary" width="33%" />
 </div>
+
 <p align="justify">
-The project focuses on the development of a machine learning model for 
-detecting characters using MobileNetV2, a popular convolutional neural 
-network architecture. In this project, pre-trained weights from ImageNet 
-are utilized, and the last few layers of the model are retrained while 
-keeping the earlier layers' weights frozen.
-To train the model, a combination of Kaggle dataset and additional 
-data collected by the team is used, resulting in a total of 4067 
-images. The dataset is split using a 80:20 ratio for training
+The primary focus of this project centers on the development of a machine 
+learning model designed for character detection, leveraging the renowned 
+<code>EfficientNetV2B0</code>, convolutional neural network architecture. 
+Notably, pre-trained weights sourced from ImageNet form a foundational 
+component of the model's training. The retraining process involves 
+selectively updating the last few layers of the network while preserving 
+the weights of the earlier layers.
+To train the model, a Kaggle and hand-drawn dataset are collected 
+by the team is used, resulting in a total of more than <code>10.000</code> 
+images. The dataset is split using a <code>80:20</code> ratio for training
 and validation sets purposely.
 </p>
 
@@ -75,11 +80,13 @@ and validation sets purposely.
 
 <p align="justify">
 The model passes through more or less than 35 epochs during the training phase, with
-a learning rate of 0.0005. The employment of categorical-crossentropy
-as the chosen loss function and the application of the AdamW optimizer
+a learning rate of 0.0005. The employment of <code>categorical-crossentropy</code>
+as the chosen loss function and the application of the <code>AdamW</code> optimizer
 help this procedure. This well-designed configuration improves the model's
 ability to learn and identify characters correctly
+</p>
 
+<p align="justify">
 Once the classification model has been successfully trained, 
 the project moves on with the seamless integration of other 
 characteristics, including picture segmentation. The model's 
@@ -88,13 +95,16 @@ making it a fully functional scanner. This combined capability
 makes the model more effective and creates new application 
 opportunities by enabling it to carry out more complicated 
 tasks than only character identification.
+</p>
 
+<p align="justify">
 This project, taken as a whole, demonstrates how to deploy EfficientNetV2-B0
 effectively, use a variety of machine learning techniques, including transfer
 learning with pre-trained weights, and build a strong character identification
 model. The use of picture segmentation not only improves the model's overall
-performance but also expands its capabilities, making it multipurpose scanner.
+performance but also expands its capabilities, making it a multipurpose scanner.
 </p>
+
 
 
 ### Built With
