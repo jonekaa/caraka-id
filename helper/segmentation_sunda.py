@@ -83,20 +83,42 @@ def predict_words(labels):
         if label == 'vowels_o':
             label = labels[id - 1].replace(list(labels[id - 1])[1], 'o')
             words.pop()
+        elif label == 'vowels_e':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'e')
+            label = ''
+        elif label == 'vowels_ee':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'ee')
+            label = ''
+        elif label == 'vowels_eu':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'eu')
+            label = ''
+        elif label == 'vowels_i':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'i')
+            label = ''
         elif label == 'vowels_u':
             label = labels[id - 1].replace(list(labels[id - 1])[1], 'u')
+            words.pop()
+        elif label == 'vowels_la':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'la')
+            words.pop()
+        elif label == 'vowels_ra':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'ra')
             words.pop()
         elif label == 'vowels_ya':
             label = labels[id - 1].replace(list(labels[id - 1])[1], 'ya')
             words.pop()
         elif label == 'vowels_x':
-            label = labels[id - 1].replace(list(labels[id - 1])[1], 'ya')
+            label = labels[id - 1].replace(list(labels[id - 1])[1], '')
             words.pop()
 
         elif label == 'vowels_h':
             label = 'h'
         elif label == 'vowel_r':
-            label = 'r'
+            labels[id + 1] = (labels[id + 1]) + 'r'
+            label = ''
+        elif label == 'vowels_ng':
+            labels[id + 1] = (labels[id + 1]) + 'ng'
+            label = ''
 
         words.append(label)
 
@@ -115,7 +137,7 @@ class_labels = ['a', 'ba', 'ca', 'da', 'e',
                 'wa', 'xa', 'ya', 'za']
 
 image_path = '../test_images/Aksara_Sunda/bala.jpg'
-model_path = '../models/model_sunda_efficientnet_v2_993_993.h5'
+model_path = '../models/model_sunda_v2.h5'
 
 model = load_your_model(model_path)
 image = cv2.imread(image_path)

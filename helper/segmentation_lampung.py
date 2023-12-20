@@ -72,37 +72,41 @@ def predict_words(labels):
     words = []
 
     for id, label in enumerate(labels):
-        if label == 'Pengangge tengenan - Bisah (h)':
-            label = 'h'
-
-        elif label == 'Pengangge tengenan - Cecek (ng)':
-            label = 'ng'
-
-        elif label == 'Pengangge tengenan - Surang (r)':
-            label = 'r'
-
-        elif label == 'Pengangge tengenan - Adeg Adeg' and id == len(labels):
-            label = labels[id - 1].replace(list(labels[id - 1])[1], '')
+        if label == 'i':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'i')
+            label = ''
+        elif label == 'ee':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'ee')
+            label = ''
+        elif label == 'e':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'e')
+            label = ''
+        elif label == 'n':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'n')
+            label = ''
+        elif label == 'ng':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'ng')
+            label = ''
+        elif label == 'r':
+            labels[id + 1] = labels[id + 1].replace(list(labels[id + 1])[1], 'r')
+            label = ''
+        elif label == 'o':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'o')
             words.pop()
-
-        elif label == 'Pengangge tengenan - Adeg Adeg' and id != len(labels):
-            label = 'Pengangge suara - Taleng'
-
-        elif label == 'Pengangge suara - Suku':
-            label = labels[id - 1].replace(list(labels[id - 1])[1], 'u')
+        elif label == 'au':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'au')
             words.pop()
-
-        elif label == 'Pengangge suara - Ulu':
+        elif label == 'ai':
             label = labels[id - 1].replace(list(labels[id - 1])[1], 'i')
             words.pop()
-
-        elif label == 'Pengangge suara - Pepet':
-            label = labels[id + 1].replace(list(labels[id + 1])[1], 'ee')
-            labels[id + 1] = ''
-
-        if label == 'Pengangge suara - Taleng':
-            label = labels[id + 1].replace(list(labels[id + 1])[1], 'e')
-            labels[id + 1] = ''
+        elif label == 'u':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], 'u')
+            words.pop()
+        elif label == 'nengen':
+            label = labels[id - 1].replace(list(labels[id - 1])[1], '')
+            words.pop()
+        elif label == 'h':
+            label = 'h'
 
         words.append(label)
 
@@ -113,20 +117,7 @@ if __name__ == '__main__':
     MODEL_PATH = '../models/model_bali_v1.h5'
     IMAGE_PATH = '../test_images/Aksara_Bali/pergi_ke_bali_gambar (1).jpg'
 
-    CLASS_LABELS = ['Ba', 'Ca', 'Da', 'Ga', 'Ha',
-                    'Ja', 'Ka', 'La', 'Ma', 'Na',
-                    'Nga', 'Nya', 'Pa',
-                    'Pengangge suara - Pepet',
-                    'Pengangge suara - Suku',
-                    'Pengangge suara - Taleng',
-                    'Pengangge suara - Taleng Tedong',
-                    'Pengangge suara - Tedong',
-                    'Pengangge suara - Ulu',
-                    'Pengangge tengenan - Adeg Adeg',
-                    'Pengangge tengenan - Bisah (h)',
-                    'Pengangge tengenan - Cecek (ng)',
-                    'Pengangge tengenan - Surang (r)',
-                    'Ra', 'Sa', 'Ta', 'Wa', 'Ya']
+    CLASS_LABELS = []
 
     model = load_model(MODEL_PATH)
 
