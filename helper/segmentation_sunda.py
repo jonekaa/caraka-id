@@ -136,8 +136,8 @@ class_labels = ['a', 'ba', 'ca', 'da', 'e',
                 'vowels_u', 'vowels_x', 'vowels_ya',
                 'wa', 'xa', 'ya', 'za']
 
-image_path = '../test_images/Aksara_Sunda/bala.jpg'
-model_path = '../models/model_sunda_v2.h5'
+image_path = '../test_images/Aksara_Sunda/sunda.jpg'
+model_path = '../models/model_sunda_v3.h5'
 
 model = load_your_model(model_path)
 image = cv2.imread(image_path)

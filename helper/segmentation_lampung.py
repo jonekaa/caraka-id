@@ -117,7 +117,10 @@ if __name__ == '__main__':
     MODEL_PATH = '../models/model_bali_v1.h5'
     IMAGE_PATH = '../test_images/Aksara_Bali/pergi_ke_bali_gambar (1).jpg'
 
-    CLASS_LABELS = []
+    CLASS_LABELS = ['a', 'ai', 'au', 'ba', 'ca', 'da', 'e', 'ee', 'ga',
+                    'gha', 'h', 'ha', 'i', 'ja', 'ka', 'la', 'ma', 'n',
+                    'na', 'nengen', 'ng', 'nga', 'nya', 'o', 'pa', 'r',
+                    'ra', 'sa', 'ta', 'u', 'wa', 'ya']
 
     model = load_model(MODEL_PATH)
 
