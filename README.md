@@ -77,7 +77,6 @@ boxes.sort(key=lambda x: (x[0], x[1]))
 <div align="center">
     <img src="images/model_bali_accuracy.png" alt="bali_epochs" width="32%" />
     <img src="images/model_sunda_accuracy.png" alt="sunda_epochs" width="32%" />
-    <img src="images/model_lampung_accuracy.png" alt="lampung_epochs" width="32%" />
 
 </div>
 
