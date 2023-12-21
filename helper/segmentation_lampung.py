@@ -114,8 +114,8 @@ def predict_words(labels):
 
 
 if __name__ == '__main__':
-    MODEL_PATH = '../models/model_bali_v1.h5'
-    IMAGE_PATH = '../test_images/Aksara_Bali/pergi_ke_bali_gambar (1).jpg'
+    MODEL_PATH = '../models/model_lampung.h5'
+    IMAGE_PATH = '../test_images/Aksara_Lampung/'
 
     CLASS_LABELS = ['a', 'ai', 'au', 'ba', 'ca', 'da', 'e', 'ee', 'ga',
                     'gha', 'h', 'ha', 'i', 'ja', 'ka', 'la', 'ma', 'n',
